@@ -1,0 +1,138 @@
+<template>
+	<div class="page" :style="{height:height}">
+		<swiper  class="video-swiper" :indicator-dots="true" :vertical="true" @change="handleSlider" :duration="100"  :style="{height:height}">
+			<swiper-item v-for="(item,index) in list" :key="index" :height="height">
+				<view class="swiper-item"  :style="{height:height}">
+					<view class="video-content" :ref="'myVideo' + index" :id="'myVideo' + index">
+						<video
+						 :style="{height:height}"
+						:loop="true"
+						class="video-player" 
+						:controls="true"
+						:src="item.src"
+						:object-fit="fill"
+						:index="index"
+						:enable-progress-gesture="false"
+						:show-play-btn="true"
+						></video>
+					</view>
+				</view>
+			</swiper-item>
+		</swiper>
+	</div>
+</template>
+
+<script>
+	import videoPlayer from "../../components/videoPlayer/videoPlayer.vue"
+	import StorageUtil from "../../common/storage/StorageUtil.js"
+	export default{
+		data(){
+			return {
+				videoIndex: 0,
+				isPlay: true,    //当前视频是否播放中
+				clickNum: 0,    //记录点击次数
+				height:'',
+				list:[
+					{
+						id:1,
+						src:'https://v1.kwaicdn.com/upic/2021/02/19/15/BMjAyMTAyMTkxNTUxNDRfMTU4NTgyNDI1M180NDYzNDgwNzQ4N18xXzM=_b_B3a10d5509e44c9888e2f42a5f57cf9f6.mp4?pkey=AAVfmRJW9Qlf6Yfy7Ej4KRwTI8N_HSbxhrTOrmzlpDvwqg9GwKZS5q4O4B7NJhPzLGuOMCGdVwfEqgt-960546JoSa_BdJCvCHiTOUNdjoygdCvwN7962L95D7ujI8fP_QA&tag=1-1619769477-xpcwebhome-0-advwe3ve58-9d47af9f9d63d705&clientCacheKey=3xtpk4en349jchw_b.mp4&tt=b&di=777b408d&bp=14944',
+					},
+					{
+						id:2,
+						src:'https://v2.kwaicdn.com/upic/2021/04/17/20/BMjAyMTA0MTcyMDIyMjlfMTkxODE3NjgwNF80Nzk5NzE5NDE5MV8wXzM=_b_B40bffd8711ec3cb73331a5a744d99ca3.mp4?pkey=AAX1YV5uQfp84JeyDibijJnke8iRHVQygDpXC6MCzocJRSkJIbXCdlVoXpyTKRArBStUB1G9QALDPAY7P-zdGvM3uLBk90d43muHnqAXuMwbGqzcc4DZGgHk0CnaldvUjHU&tag=1-1619769477-xpcwebhome-0-z6oav1ncad-8efb08a0c21d4a64&clientCacheKey=3xrcrimcith36mq_b.mp4&tt=b&di=777b408d&bp=14944',
+					},
+					{
+						id:3,
+						src:'https://v1.kwaicdn.com/upic/2021/04/22/21/BMjAyMTA0MjIyMTQ0MjlfMTE2ODM0MDYzM180ODI3ODIxNTQ3MV8xXzM=_b_B5d38835a2b60bbb53021e5f1a99e77d1.mp4?pkey=AAVOWmelF6utT9bKkVKw_D7DDL4TVO6pfsMYsUP7eag9FmO8AFRhskjKkPbsB6ghu8YN9-ruvhMKfNHxCH1kax-EbNv-90W7lsUxU9WvU9cvGbP1tBalwo5FlD0XsQCQbj0&tag=1-1619769477-xpcwebhome-0-cxrxxdsxrw-9095b61d48ec0ff9&clientCacheKey=3x9qwjf99czxguy_b.mp4&tt=b&di=777b408d&bp=14944',
+					},
+					{
+						id:4,
+						src:'https://v2.kwaicdn.com/upic/2021/03/24/16/BMjAyMTAzMjQxNjAwNDNfNjU3NzI1OTVfNDY1NDczNjAyOTdfMV8z_b_Bed76c1e7e8752420ed4d8514bdf66d0c.mp4?pkey=AAUG_YV965FkzU0WZ4iVtVmEDt6vhy26snjbrM_yixU5MRAPakgtMO2elj6VTZBbgVyoYfOwLH2lsuXSG7RO-lDNezd72VDZOlHeGbirYEP60eLvTpnl1A55b_j_ZthN2M4&tag=1-1619769477-xpcwebhome-0-xol3qn1n5z-714aae9901f0351e&clientCacheKey=3xz5vew646pkaig_b.mp4&tt=b&di=777b408d&bp=14944',
+					}
+				],
+				dataList: [{id: "1", name: 'A'}, {id: "2", name: 'B'}, {id: "3", name: 'C'},{id: "4", name: 'D'},{id: "5", name: 'E'},{id: "6", name: 'F'},{id: "7", name: 'G'}]
+			}
+		},
+		components:{
+			videoPlayer
+		},
+		computed:{
+			
+		},
+		created(){
+			const view_height = StorageUtil.syncGetStorage('rpx_height')
+			if(view_height){
+				this.height = view_height+'px'
+				console.log(this.height)
+			}else{
+				return '87%'
+			}
+		},
+		onReady(){
+			this.init()
+			// console.log(this.videoContextList)
+		},
+		methods:{
+				init() {
+					this.videoContextList = []
+					for(let i = 0; i < this.list.length; i++) {
+						// console.log(uni.createVideoContext('myVideo' + i))
+						
+						// this.videoContextList.push(this.$refs['myVideo' + i][0])
+						this.videoContextList.push(uni.createVideoContext('myVideo' + i, this));
+					}
+					// console.log(this.videoContextList)
+					setTimeout(() => {
+						this.play(this.videoIndex)
+					}, 200)
+				},
+			 // 滑动切换
+				handleSlider(e) {
+					let curIndex = e.detail.current
+					console.log(curIndex)
+					if(this.videoIndex >= 0){
+						this.videoContextList[this.videoIndex].pause()
+						this.videoContextList[this.videoIndex].seek(0)
+						this.isPlay = false
+					}
+					if(curIndex === this.videoIndex + 1) {
+						this.videoContextList[this.videoIndex + 1].play()
+						this.isPlay = true
+					}else if(curIndex === this.videoIndex - 1) {
+						this.videoContextList[this.videoIndex - 1].play()
+						this.isPlay = true
+					}
+					this.videoIndex = curIndex
+				},
+				 // 播放
+				play(index) {
+					this.videoContextList[index].play()
+					this.isPlay = true
+				},
+				// 暂停
+				pause(index) {
+					this.videoContextList[index].pause()
+					this.isPlay = false
+				},
+		}
+	}
+</script>
+
+<style>
+	.page{
+		width:750rpx;
+	}
+	.video-swiper{
+		width:750rpx;
+	}
+	.swiper-item{
+		position:relative;
+		z-index:999;
+		width:750rpx;
+	}
+	.video-player{
+		width:750rpx;
+		z-index:9;
+		
+	}
+</style>

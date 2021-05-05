@@ -1,0 +1,17 @@
+<template>
+	<div class="haoren">
+		<div>
+			<text class="text">我是好人</text>
+		</div>
+	</div>
+</template>
+
+<script>
+	export default {
+		
+	}
+</script>
+
+<style>
+	.text{color:#fff;font-size:300px;}
+</style>

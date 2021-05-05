@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "video-player": "/components/videoPlayer/videoPlayer"
+  }
+}

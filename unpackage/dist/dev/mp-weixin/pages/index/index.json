@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tab": "/components/tab/tab",
+    "top": "/components/top/top",
+    "video-list": "/components/videoList/videoList"
+  }
+}

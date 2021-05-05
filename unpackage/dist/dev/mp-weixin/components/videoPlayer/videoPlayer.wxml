@@ -1,0 +1,1 @@
+<view class="video-content"><video class="video-player" loop="{{false}}" controls="{{true}}" show-center-play-btn="{{true}}" show-play-btn="{{false}}" show-fullscreen-btn="{{false}}" src="{{item.src}}" index="{{index}}" enable-progress-gesture="{{true}}" muted="{{true}}"></video></view>

@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/ceshi/ceshi"
+  ],
+  "subPackages": [],
+  "window": {
+    "transparentTitle": "always",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}

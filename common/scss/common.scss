@@ -1,0 +1,29 @@
+/**
+	 * 公共页面尺寸单位换算
+	 * $designWidth  设计稿的基准宽度
+	 */
+
+	@function baseRpx($designWidth,$rpx){
+		@return 750*$rpx/$designWidth;
+	}
+	@function rpx($rpx){
+		@return baseRpx(750,$rpx)*1rpx;
+	}
+	
+	@function caleWidth($number){
+		@return 100/$number*1%;
+	}
+	
+	@mixin clear-both {
+		clear:both;height:0;content: '';visibility: hidden;display: block;
+	}
+	
+	@mixin border-radius($rpx){
+		border-radius:$rpx;
+		/* #ifdef H5 */
+		-webkit-border-radius:$rpx;-moz-border-radius:$rpx;-ms-border-radius:$rpx;-o-border-radius:$rpx;
+		/* #endif */
+	}
+	// page{
+	// 	width:rpx(750);margin:0 auto;overflow: hidden;
+	// }
