@@ -83,7 +83,7 @@ try {
       return __webpack_require__.e(/*! import() | components/videoLeft/videoLeft */ "components/videoLeft/videoLeft").then(__webpack_require__.bind(null, /*! @/components/videoLeft/videoLeft.vue */ 56))
     },
     videoRight: function() {
-      return __webpack_require__.e(/*! import() | components/videoRight/videoRight */ "components/videoRight/videoRight").then(__webpack_require__.bind(null, /*! @/components/videoRight/videoRight.vue */ 71))
+      return __webpack_require__.e(/*! import() | components/videoRight/videoRight */ "components/videoRight/videoRight").then(__webpack_require__.bind(null, /*! @/components/videoRight/videoRight.vue */ 63))
     }
   }
 } catch (e) {
@@ -162,7 +162,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _StorageUtil = _interopRequireDefault(__webpack_require__(/*! ../../common/storage/StorageUtil.js */ 8));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var videoPlayer = function videoPlayer() {__webpack_require__.e(/*! require.ensure | components/videoPlayer/videoPlayer */ "components/videoPlayer/videoPlayer").then((function () {return resolve(__webpack_require__(/*! ../videoPlayer/videoPlayer.vue */ 49));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var videoLeft = function videoLeft() {__webpack_require__.e(/*! require.ensure | components/videoLeft/videoLeft */ "components/videoLeft/videoLeft").then((function () {return resolve(__webpack_require__(/*! ../videoLeft/videoLeft.vue */ 56));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var videoRight = function videoRight() {__webpack_require__.e(/*! require.ensure | components/videoRight/videoRight */ "components/videoRight/videoRight").then((function () {return resolve(__webpack_require__(/*! ../videoRight/videoRight.vue */ 71));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _StorageUtil = _interopRequireDefault(__webpack_require__(/*! ../../common/storage/StorageUtil.js */ 8));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var videoPlayer = function videoPlayer() {__webpack_require__.e(/*! require.ensure | components/videoPlayer/videoPlayer */ "components/videoPlayer/videoPlayer").then((function () {return resolve(__webpack_require__(/*! ../videoPlayer/videoPlayer.vue */ 49));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var videoLeft = function videoLeft() {__webpack_require__.e(/*! require.ensure | components/videoLeft/videoLeft */ "components/videoLeft/videoLeft").then((function () {return resolve(__webpack_require__(/*! ../videoLeft/videoLeft.vue */ 56));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var videoRight = function videoRight() {__webpack_require__.e(/*! require.ensure | components/videoRight/videoRight */ "components/videoRight/videoRight").then((function () {return resolve(__webpack_require__(/*! ../videoRight/videoRight.vue */ 63));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 {
